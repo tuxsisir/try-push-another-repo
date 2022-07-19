@@ -17,7 +17,7 @@ jobs:
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
-          source-directory: pages/
+          source-directory: 'pages'
           destination-github-username: 'tuxsisir'
           destination-repository-name: 'test-pull'
           user-email: samratsisir294@gmail.com
