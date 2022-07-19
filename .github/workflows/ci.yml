@@ -9,10 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     steps:
       - uses: actions/checkout@v2
-      - name: Pushes to another repository
+      - name: Push to another repository
         id: push_directory
         uses: tuxsisir/test-push@ssh-deploy-key
         env:
