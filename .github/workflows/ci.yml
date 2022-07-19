@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Push pages
-        id: push_directory
+        id: push_pages
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
@@ -25,7 +25,7 @@ jobs:
           target-branch: dev
           target-directory: 'pages/dashboard'
       - name: Push assets
-        id: push_directory
+        id: push_assets
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
