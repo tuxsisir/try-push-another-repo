@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Push to another repository
+      - name: Push pages
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
         env:
@@ -24,5 +24,18 @@ jobs:
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: dev
           target-directory: 'pages/dashboard'
+      - name: Push assets
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: 'assets'
+          destination-github-username: 'tuxsisir'
+          destination-repository-name: 'test-pull'
+          user-email: samratsisir294@gmail.com
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: dev
+          target-directory: 'assets/'
       - name: Test changes move from test-push to test-pull
         run: echo $DESTINATION_CLONED_DIRECTORY
