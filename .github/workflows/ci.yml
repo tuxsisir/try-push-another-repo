@@ -22,7 +22,7 @@ jobs:
           destination-repository-name: 'test-pull'
           user-email: samratsisir294@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main
+          target-branch: dev
           target-directory: 'pages/dashboard'
       - name: Test changes move from test-push to test-pull
         run: echo $DESTINATION_CLONED_DIRECTORY
