@@ -1,6 +1,6 @@
 <template>
   <div>
-    Test 3
+    Test 4
   </div>
 </template>
 <script>
