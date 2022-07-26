@@ -16,11 +16,14 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          DESTINATION_REPO_NAME: ${{ secrets.DESTINATION_REPO_NAME }}
         with:
           source-directory: 'pages'
-          destination-github-username: 'tuxsisir'
-          destination-repository-name: 'test-pull'
-          user-email: samratsisir294@gmail.com
+          destination-github-username: '${{ secrets.GH_USERNAME }}'
+          destination-repository-name: '${{ secrets.DESTINATION_REPO_NAME }}'
+          user-email: ${{ secrets.USER_EMAIL }}
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: dev
           target-directory: 'pages/dashboard'
@@ -29,11 +32,14 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          DESTINATION_REPO_NAME: ${{ secrets.DESTINATION_REPO_NAME }}
         with:
           source-directory: 'assets'
-          destination-github-username: 'tuxsisir'
-          destination-repository-name: 'test-pull'
-          user-email: samratsisir294@gmail.com
+          destination-github-username: '${{ secrets.GH_USERNAME }}'
+          destination-repository-name: '${{ secrets.DESTINATION_REPO_NAME }}'
+          user-email: ${{ secrets.USER_EMAIL }}
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: dev
           target-directory: 'assets/'
